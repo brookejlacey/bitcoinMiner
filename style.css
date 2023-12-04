@@ -1,0 +1,16 @@
+.bg-image {
+    background: url('https://www.cryptoandfire.com/wp-content/uploads/2021/01/bitcoin-mining-guide-how-to-mine-bitcoin.jpg') no-repeat center center;
+    background-size: contain;
+    height: 300px;
+    width: 300px;
+    margin: auto;
+}
+
+.coin {
+    height: 100%;
+    cursor: pointer;
+}
+
+.counter {
+    width: fit-content;
+}
