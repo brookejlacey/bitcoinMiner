@@ -1,6 +1,8 @@
 console.log('Starting game...');
 
 let bitcoin = 0;
+let totalBitcoinCollected = 0;
+
 
 let clickUpgrades = {
     dogecoinMiner: {
@@ -48,6 +50,7 @@ function mineBitcoin() {
         clickValue += clickUpgrades[key].quantity * clickUpgrades[key].multiplier;
     }
     bitcoin += clickValue;
+    totalBitcoinCollected += clickValue;
     updateDisplay();
     console.log(`Mined ${clickValue} bitcoin(s). Total now: ${bitcoin}`);
 }
@@ -83,6 +86,7 @@ function updateDisplay() {
     document.getElementById('bitcoinCount').innerText = bitcoin;
     document.getElementById('totalPerClick').innerText = calculateTotalPerClick();
     document.getElementById('totalPerAuto').innerText = calculateTotalPerAuto();
+    document.getElementById('totalCollected').innerText = totalBitcoinCollected;
 
     for (const upgradeKey in clickUpgrades) {
         const upgrade = clickUpgrades[upgradeKey];
@@ -107,7 +111,14 @@ function calculateTotalPerAuto() {
     return Object.values(automaticUpgrades).reduce((total, upgrade) => total + (upgrade.quantity * upgrade.multiplier), 0);
 }
 
+// function collectAutoUpgrades() {
+//     bitcoin += calculateTotalPerAuto();
+//     updateDisplay();
+// }
+
 function collectAutoUpgrades() {
-    bitcoin += calculateTotalPerAuto();
+    let autoValue = calculateTotalPerAuto();
+    bitcoin += autoValue;
+    totalBitcoinCollected += autoValue;
     updateDisplay();
 }
