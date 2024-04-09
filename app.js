@@ -3,7 +3,7 @@ console.log('Starting game...');
 let bitcoin = 0;
 let totalBitcoinCollected = 0;
 
-
+//change this to not clicking upgrades
 let clickUpgrades = {
     dogecoinMiner: {
         name: 'Dogecoin Miner',
